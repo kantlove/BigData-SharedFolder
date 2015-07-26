@@ -11,6 +11,17 @@
 +==================================================================
 
 -------------------------------------------------------------------
+ How to run
+-------------------------------------------------------------------
+  Run this command
+    bin/hadoop jar AssociationRule_Step3.jar input k1 k2 rules
+    where:
+      - input: input folder path
+      - k1: output folder after step 1
+      - k2: output folder after step 2
+      - rules: output folder after step 3
+
+-------------------------------------------------------------------
  JAR files
 -------------------------------------------------------------------
   There are 3 jar files in the package:
