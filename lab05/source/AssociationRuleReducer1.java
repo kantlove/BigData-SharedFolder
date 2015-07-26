@@ -17,8 +17,8 @@ public class AssociationRuleReducer1 extends
 		}
 		
 		String out_key = key.toString() + "_";
-		
-		context.write(new Text(out_key), new IntWritable(sum));
+		if(sum >= AssociationRuleSettings.minsup_limit())
+			context.write(new Text(out_key), new IntWritable(sum));
 		
 		cleanup(context);
 	}

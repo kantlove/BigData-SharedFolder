@@ -11,7 +11,6 @@ import org.apache.hadoop.mapreduce.Reducer;
 public class AssociationRuleReducer3 extends
 		Reducer<Text, Text, Text, FloatWritable> {
 	
-	private static final float minconf = 0.7f;
 
 	public void reduce(Text key, Iterable<Text> values, Context context)
 			throws IOException, InterruptedException {
@@ -46,6 +45,7 @@ public class AssociationRuleReducer3 extends
 		int n = idA.size();
 		for(int i = 0; i < n; ++i) {
 			float conf = countAB.get(i) * 1.0f / countA;
+			float minconf = AssociationRuleSettings.minconf;
 			if(Float.compare(conf, minconf) >= 0) {
 				String out_key = String.format("%s -> %s", idA.get(i), idB.get(i));
 				context.write(new Text(out_key), new FloatWritable(conf));

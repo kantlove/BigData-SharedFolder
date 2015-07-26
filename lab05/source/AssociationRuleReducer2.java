@@ -16,7 +16,8 @@ public class AssociationRuleReducer2 extends
 			sum += i.get();
 		}
 		
-		context.write(key, new IntWritable(sum));
+		if(sum >= AssociationRuleSettings.minsup_limit())
+			context.write(key, new IntWritable(sum));
 		
 		cleanup(context);
 	}

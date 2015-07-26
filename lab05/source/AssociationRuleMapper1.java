@@ -24,7 +24,9 @@ public class AssociationRuleMapper1 extends
 			context.write(id, one);
 		}
 		
+		AssociationRuleSettings.number_of_lines++;
 		cleanup(context);
+		
 	}
 
 }
